@@ -1,6 +1,6 @@
 exports.mockData = [
     {
-        "Question": "Was ist meine Lieblingsfrage?",
+        "Question": "Was ist meine Lieblingsfarbe?",
         "Answers":
         [
             "Rot",
