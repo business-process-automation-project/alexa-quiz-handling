@@ -1,59 +1,70 @@
 exports.mockData = [
     {
-        "Question": "Was ist meine Lieblingsfarbe?",
-        "Answers":
-        [
-            "Rot",
-            "Blau",
-            "Grün"
-        ],
-        "Correctness":
-        [
-            false,
-            true,
-            false
+        "Question": "Was ist der Weltrekord im Luft anhalten?",
+        "Answers": [
+            {
+                "Text": "vier minuten",
+                "Correctness": false
+            },
+            {
+                "Text": "acht minuten",
+                "Correctness": true
+            },
+            {
+                "Text": "zehn minuten",
+                "Correctness": false
+            }
         ]
     },
     {
-        "Question": "Wie heiße ich mit Vornamen?",
+        "Question": "Wie lang brauch der Magen bis er eine Schweinshaxe verdauen kann?",
         "Answers": [
-            "Norbert",
-            "Horst",
-            "Florian"
-        ],
-        "Correctness":
-        [
-            false,
-            false,
-            true
+            {
+                "Text": "dreizehn stunden",
+                "Correctness": false
+            },
+            {
+                "Text": "dreizig minuten",
+                "Correctness": false
+            },
+            {
+                "Text": "neun stunden",
+                "Correctness": true
+            }
         ]
     },
     {
         "Question": "Wie heißt der Vater von Donald Duck?",
         "Answers": [
-            "Degenhard",
-            "Jimmy",
-            "Alfred"
-        ],
-        "Correctness":
-        [
-            true,
-            false,
-            false
+            {
+                "Text": "Degenhard",
+                "Correctness": true
+            },
+            {
+                "Text": "Jimmy",
+                "Correctness": false
+            },
+            {
+                "Text": "Alfred",
+                "Correctness": false
+            }
         ]
     },
     {
         "Question": "Wie oft schluckt ein erwachsener Mensch am Tag?",
         "Answers": [
-            "sechshundertmal",
-            "fünfzigmal",
-            "achthundertmal"
-        ],
-        "Correctness":
-        [
-            true,
-            false,
-            false
+            {
+                "Text": "sechshundertmal",
+                "Correctness": true
+            },
+            {
+                "Text": "fünfzigmal",
+                "Correctness": false
+            },
+            {
+                "Text": "achthundertmal",
+                "Correctness": false
+            }
         ]
     }
 ]
