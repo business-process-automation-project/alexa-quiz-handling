@@ -4,7 +4,7 @@ exports.deData = {
     translation: {
         SKILL_NAME: 'Quiz',
         WELCOME_MESSAGE: 'Willkommen beim Quizspiel Eins, Zwei oder Drei. Was kann ich für Sie tun?',
-        START_MESSAGE: 'Lass uns das Spiel beginnen',
+        // START_MESSAGE: 'Lass uns das Spiel beginnen',
         REPROMT_MESSAGE: 'Wie kann ich Ihnen helfen?',
         HELP_MESSAGE: 'Sie können einen Spiel anmelden oder das Spiel starten. Sagen Sie einfach, Spiel starten. oder Benutzer anmelden',
         FALLBACK_MESSAGE: 'Der Quiz-Skill kann dir dabei leider nicht helfen.',
