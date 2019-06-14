@@ -10,6 +10,8 @@
   "license": "ISC",
   "dependencies": {
     "ask-sdk": "^2.3.0",
-    "https": "^1.0.0"
+    "https": "^1.0.0",
+    "mqtt": "^2.18.8",
+    "ssml-builder": "^0.4.3"
   }
 }
