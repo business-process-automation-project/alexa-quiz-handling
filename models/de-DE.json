@@ -1,7 +1,7 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "quiz",
+      "invocationName": "bpa",
       "intents": [
         {
           "name": "AMAZON.CancelIntent",
@@ -17,23 +17,34 @@
         },
         {
           "name": "StartGameIntent",
-          "slots": [
-            {
-              "name": "NumberofQuestions",
-              "type": "AMAZON.NUMBER",
-              "samples": [
-                "{NumberofQuestions}",
-                "{NumberofQuestions} Fragen",
-                "mit {NumberofQuestions} Fragen spielen"
-              ]
-            }
-          ],
           "samples": [
             "starte das spiel",
+            "spiel starten",
+            "nächste Frage",
+            "weiter mit der nächste Frage",
             "starte das quiz",
             "das spiel kann beginnen",
             "starte eins zwei oder drei",
             "eins zwei oder drei starten"
+          ]
+        },
+        {
+          "name": "JumpStartetIntent",
+          "samples": [
+            "bereit",
+            "alle bereit",
+            "kann los gehen",
+            "los geht es",
+            "los gehts"
+          ]
+        },
+        {
+          "name": "QuestionsEndedIntent",
+          "samples": [
+            "auswerten",
+            "frage auswerten",
+            "alle an Ihren Positionen",
+            "alle da"
           ]
         },
         {
@@ -42,38 +53,6 @@
         }
       ],
       "types": []
-    },
-    "dialog": {
-      "intents": [
-        {
-          "name": "StartGameIntent",
-          "confirmationRequired": false,
-          "prompts": {},
-          "slots": [
-            {
-              "name": "NumberofQuestions",
-              "type": "AMAZON.NUMBER",
-              "confirmationRequired": false,
-              "elicitationRequired": true,
-              "prompts": {
-                "elicitation": "Elicit.Slot.954993215970.454105253553"
-              }
-            }
-          ]
-        }
-      ],
-      "delegationStrategy": "ALWAYS"
-    },
-    "prompts": [
-      {
-        "id": "Elicit.Slot.954993215970.454105253553",
-        "variations": [
-          {
-            "type": "PlainText",
-            "value": "Mit wie vielen Fragen soll gespielt werden?"
-          }
-        ]
-      }
-    ]
+    }
   }
 }

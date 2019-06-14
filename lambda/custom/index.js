@@ -1,6 +1,8 @@
 const Alexa = require('ask-sdk-core');
 const language = require('./language');
 const StartGameIntent = require('./startGameHandler');
+const QuestionsEndedIntent = require('./questionsEndedHandler');
+const JumpStartetIntent = require('./jumpStartetHandler.js');
 
 const LaunchRequestHandler = {
   canHandle(handlerInput) {
@@ -72,6 +74,8 @@ exports.handler = skillBuilder
   .addRequestHandlers(
     LaunchRequestHandler,
     StartGameIntent.StartGameHandler,
+    JumpStartetIntent.JumpStartetHandler,
+    QuestionsEndedIntent.QuestionsEndedHandler,
     HelpIntentHandler,
     CancelAndStopIntentHandler,
     SessionEndedRequestHandler
