@@ -6,10 +6,17 @@ exports.QuestionsEndedHandler = {
             && handlerInput.requestEnvelope.request.intent.name === 'QuestionsEndedIntent';
     },
     async handle(handlerInput) {
+        // console.log(JSON.stringify(globalData));
+        let correctAnswer = "Answer";
+        for (let i = 0; i < 3; i++) {
+            if (globalData[0].Answer[i].Correctnes == true) {
+                correctAnswer += (i+1);
+            }
+        }
+        // console.log("_____Richtige Anwort" + correctAnswer);
+        // publishDataMQTT("Lights",correctAnswer);
 
-        // publishDataMQTT("Lights","Answer3");
-
-        let speechText = '<break time="4s"/> Wie soll ich fortfahren?';
+        let speechText = '<break time="5s"/> Wie soll ich fortfahren?';
 
         return handlerInput.responseBuilder
             .speak(speechText)
