@@ -1,4 +1,6 @@
 const Alexa = require('ask-sdk-core');
+const mqtt = require('mqtt');
+
 const language = require('./language');
 const StartGameIntent = require('./startGameHandler');
 const QuestionsEndedIntent = require('./questionsEndedHandler');
@@ -37,17 +39,18 @@ const CancelAndStopIntentHandler = {
         || handlerInput.requestEnvelope.request.intent.name === 'AMAZON.StopIntent');
   },
   handle(handlerInput) {
+    publishDataMQTT("ClearSession", "Ende");
     return handlerInput.responseBuilder
       .speak(language.deData.translation.CLOSE_MESSAGE)
       .getResponse();
   },
 };
-
 const SessionEndedRequestHandler = {
   canHandle(handlerInput) {
     return handlerInput.requestEnvelope.request.type === 'SessionEndedRequest';
   },
   handle(handlerInput) {
+    publishDataMQTT("ClearSession", "Ende");
     return handlerInput.responseBuilder
       .speak(language.deData.translation.CLOSE_MESSAGE)
       .getResponse();
@@ -60,7 +63,8 @@ const ErrorHandler = {
   },
   handle(handlerInput, error) {
     console.log(`Error handled: ${error.message}`);
-
+    publishDataMQTT("ClearSession", "Ende");
+    
     return handlerInput.responseBuilder
       .speak(language.deData.translation.ERROR_MESSAGE)
       .reprompt(language.deData.translation.ERROR_MESSAGE)
@@ -82,3 +86,12 @@ exports.handler = skillBuilder
   )
   .addErrorHandlers(ErrorHandler)
   .lambda();
+
+function publishDataMQTT(channelName, daten) {
+  const client = mqtt.connect('mqtt://34.230.40.176');
+
+  client.on('connect', function () {
+    client.publish(channelName, daten);
+    client.end();
+  });
+}
