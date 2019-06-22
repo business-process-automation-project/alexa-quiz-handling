@@ -8,11 +8,9 @@ exports.StartGameHandler = {
     },
     async handle(handlerInput) {
 
-        // publishDataMQTT("Lights", "DefaultLight");
-
+        publishDataMQTT("Lights", "DefaultLight");
         global.globalData = await mqttConnection();
-
-        // publishDataMQTT("Monitor", JSON.stringify(globalData));
+        publishDataMQTT("Monitor", JSON.stringify(globalData));
 
         let speechText = '';
         speechText += 'Die Frage lautet' + '<break time=".2s"/> ' + globalData[0].Question + '? ';
@@ -30,18 +28,13 @@ exports.StartGameHandler = {
     }
 };
 
-function publishDataMQTT(channelName, status) {
+function publishDataMQTT(channelName, daten) {
     const client = mqtt.connect('mqtt://34.230.40.176');
 
     client.on('connect', function () {
-        console.log("connected with mqtt: " + channelName );
-        client.subscribe(channelName, function (err) {
-            if (!err) {
-                client.publish(channelName, status);
-            }
-        })
+        client.publish(channelName, daten);
         client.end();
-    })
+    });
 }
 
 function mqttConnection() {

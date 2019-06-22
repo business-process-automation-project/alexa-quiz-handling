@@ -14,9 +14,9 @@ exports.QuestionsEndedHandler = {
             }
         }
         // console.log("_____Richtige Anwort" + correctAnswer);
-        // publishDataMQTT("Lights",correctAnswer);
+        publishDataMQTT("Lights", correctAnswer);
 
-        let speechText = '<break time="5s"/> Wie soll ich fortfahren?';
+        let speechText = '<break time="9s"/> Wie soll ich fortfahren?';
 
         return handlerInput.responseBuilder
             .speak(speechText)
@@ -25,17 +25,11 @@ exports.QuestionsEndedHandler = {
     }
 };
 
-function publishDataMQTT(channelName, status) {
+function publishDataMQTT(channelName, daten) {
     const client = mqtt.connect('mqtt://34.230.40.176');
 
     client.on('connect', function () {
-        console.log("connected with mqtt: " + channelName);
-        client.subscribe(channelName, function (err) {
-            if (!err) {
-                client.publish(channelName, status);
-            }
-        })
+        client.publish(channelName, daten);
         client.end();
-    })
+    });
 }
-

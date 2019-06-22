@@ -8,7 +8,7 @@ exports.JumpStartetHandler = {
     },
     async handle(handlerInput) {
 
-        // publishDataMQTT("Lights","StarteSpiel");
+        publishDataMQTT("Lights","StarteSpiel");
 
         var speech = new Speech();
         speech.pause('1s')
@@ -24,16 +24,11 @@ exports.JumpStartetHandler = {
     }
 };
 
-function publishDataMQTT(channelName, status) {
+function publishDataMQTT(channelName, daten) {
     const client = mqtt.connect('mqtt://34.230.40.176');
 
     client.on('connect', function () {
-        console.log("connected with mqtt: " + channelName);
-        client.subscribe(channelName, function (err) {
-            if (!err) {
-                client.publish(channelName, status);
-            }
-        })
+        client.publish(channelName, daten);
         client.end();
-    })
+    });
 }
