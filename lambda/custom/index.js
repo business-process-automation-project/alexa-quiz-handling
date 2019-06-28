@@ -5,6 +5,7 @@ const language = require('./language');
 const StartGameIntent = require('./startGameHandler');
 const QuestionsEndedIntent = require('./questionsEndedHandler');
 const JumpStartetIntent = require('./jumpStartetHandler.js');
+const DeletePlayerIntent = require('./deletePlayerHandler.js');
 
 const LaunchRequestHandler = {
   canHandle(handlerInput) {
@@ -80,6 +81,7 @@ exports.handler = skillBuilder
     StartGameIntent.StartGameHandler,
     JumpStartetIntent.JumpStartetHandler,
     QuestionsEndedIntent.QuestionsEndedHandler,
+    DeletePlayerIntent.DeletePlayerHandler,
     HelpIntentHandler,
     CancelAndStopIntentHandler,
     SessionEndedRequestHandler

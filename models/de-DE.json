@@ -1,7 +1,7 @@
 {
   "interactionModel": {
     "languageModel": {
-      "invocationName": "bpa",
+      "invocationName": "business process automation game",
       "intents": [
         {
           "name": "AMAZON.CancelIntent",
@@ -45,6 +45,16 @@
             "frage auswerten",
             "alle an Ihren Positionen",
             "alle da"
+          ]
+        },
+        {
+          "name": "DeletePlayerIntent",
+          "samples": [
+            "alle spieler löschen",
+            "spieler löschen",
+            "lösche spieler",
+            "spieler entfernen",
+            "entferne spieler"
           ]
         },
         {
