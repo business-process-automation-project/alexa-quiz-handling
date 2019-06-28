@@ -7,16 +7,18 @@ exports.QuestionsEndedHandler = {
     },
     async handle(handlerInput) {
         // console.log(JSON.stringify(globalData));
-        let correctAnswer = "Answer";
+        let correctAnswerString = "Answer";
+        let correctAnswer = "";
         for (let i = 0; i < 3; i++) {
             if (globalData[0].Answer[i].Correctnes == true) {
-                correctAnswer += (i+1);
+                correctAnswerString += (i+1);
+                correctAnswer += globalData[0].Answer[i].Text;
             }
         }
-        // console.log("_____Richtige Anwort" + correctAnswer);
-        publishDataMQTT("Lights", correctAnswer);
+        // console.log("_____Richtige Anwort" + correctAnswerString);
+        publishDataMQTT("Lights", correctAnswerString);
 
-        let speechText = '<break time="9s"/> Wie soll ich fortfahren?';
+        let speechText = 'Die richtige Anwort lautet <break time="1s"/> ' + correctAnswer + '. <break time="9s"/> Wie soll ich fortfahren?';
 
         return handlerInput.responseBuilder
             .speak(speechText)
