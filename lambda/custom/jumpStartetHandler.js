@@ -10,12 +10,15 @@ exports.JumpStartetHandler = {
 
         publishDataMQTT("Lights","StarteSpiel");
 
-        var speech = new Speech();
+        let speech = new Speech();
         speech.pause('1s')
             .audio('soundbank://soundlibrary/ui/gameshow/amzn_ui_sfx_gameshow_countdown_loop_32s_full_01')
+            .say('1, 2 oder 3, letzte Chance...')
+            .pause('2s')
+            .say('vorbei!')
             .audio('soundbank://soundlibrary/musical/amzn_sfx_buzzer_loud_alarm_01')
             .say('Sind alle an ihren Positionen und soll ausgewertet werden?');
-        var speechOutput = speech.ssml(true);
+        let speechOutput = speech.ssml(true);
 
         return handlerInput.responseBuilder
             .speak(speechOutput)
