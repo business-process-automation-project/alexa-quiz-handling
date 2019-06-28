@@ -10,7 +10,9 @@ exports.StartGameHandler = {
 
         publishDataMQTT("Lights", "DefaultLight");
         global.globalData = await mqttConnection();
-        publishDataMQTT("Monitor", JSON.stringify(globalData));
+        const dataFormated = formatJSONForMonitor();
+        // publishDataMQTT("Monitor", JSON.stringify(globalData));
+        publishDataMQTT("Monitor", dataFormated);
 
         let speechText = '';
         speechText += 'Die Frage lautet' + '<break time=".2s"/> ' + globalData[0].Question + '? ';
@@ -59,4 +61,19 @@ function mqttConnection() {
             client.end();
         })
     }));
+}
+
+function formatJSONForMonitor() {
+    let jsonOutput = '{';
+    jsonOutput += '"question":"' + globalData[0].Question + '",';
+    for (let i = 0; i < 3; i++) {
+        if (i < 2) {
+            jsonOutput += '"answer' + (i + 1) + '":"' + globalData[0].Answer[i].Text + '",';
+        }
+        if (i == 2) {
+            jsonOutput += '"answer' + (i + 1) + '":"' + globalData[0].Answer[i].Text + '"';
+        }
+    }
+    jsonOutput += '}';
+    return jsonOutput;
 }
