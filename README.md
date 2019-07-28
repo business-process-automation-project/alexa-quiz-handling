@@ -5,9 +5,9 @@ aws Account erstellen: https://portal.aws.amazon.com/billing/signup#/start
 Amazon Developer Account erstellen: https://developer.amazon.com/
 
 **AWS CLI** </br>
-wird verwendet während des Skill Deployment verwendet </br>
+wird verwendet während des Skill Deployments </br>
 AWS CLI in der Kommandozeile installieren: </br>
-`pip install awscli --upgrade --user` </br> weitere für mehr Details unter: https://docs.aws.amazon.com/de_de/cli/latest/userguide/cli-chap-install.html </br>
+`pip install awscli --upgrade --user` </br> weitere Details unter: https://docs.aws.amazon.com/de_de/cli/latest/userguide/cli-chap-install.html </br>
 CLI konfigurieren: </br>
 `$ aws configure` </br>
 `AWS Access Key ID [None]: <Your_Access_Key>`</br>
@@ -16,7 +16,7 @@ CLI konfigurieren: </br>
 `Default output format [None]: json`</br>
 
 **ASK CLI** </br>
-wird für die Entwicklung und Deployment eines Skills verwendet</br>
+wird für die Entwicklung und Deployment des Skills verwendet</br>
 für mehr Details unter: https://developer.amazon.com/docs/smapi/quick-start-alexa-skills-kit-command-line-interface.html </br>
 ASK CLI in der Kommandozeile installieren: </br>
 `$ npm install -g ask-cli` </br>
