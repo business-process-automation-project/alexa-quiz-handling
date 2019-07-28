@@ -9,16 +9,18 @@ exports.QuestionsEndedHandler = {
         // console.log(JSON.stringify(globalData));
         let correctAnswerString = "Answer";
         let correctAnswer = "";
+        let correctAnswerNumber = "";
         for (let i = 0; i < 3; i++) {
             if (globalData[0].Answer[i].Correctnes == true) {
-                correctAnswerString += (i+1);
+                correctAnswerNumber += (i + 1);
                 correctAnswer += globalData[0].Answer[i].Text;
             }
         }
+        correctAnswerString += correctAnswerNumber;
         // console.log("_____Richtige Anwort" + correctAnswerString);
         publishDataMQTT("Lights", correctAnswerString);
 
-        let speechText = 'Die richtige Anwort lautet <break time="1s"/> ' + correctAnswer + '. <break time="9s"/> Wie soll ich fortfahren?';
+        let speechText = 'Die richtige Anwort ist ' + correctAnswerNumber + '. <break time="1s"/> ' + correctAnswer + '. <break time="9s"/> Wie soll ich fortfahren?';
 
         return handlerInput.responseBuilder
             .speak(speechText)
